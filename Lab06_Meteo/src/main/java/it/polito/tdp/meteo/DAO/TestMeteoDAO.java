@@ -17,6 +17,10 @@ public class TestMeteoDAO {
 			System.out.format("%-10s %2td/%2$2tm/%2$4tY %3d%%\n", r.getLocalita(), r.getData(), r.getUmidita());
 		}
 		
+		if(list.size()>1) {
+			System.out.println(list.get(100).getData().getDay());
+		}
+		
 //		System.out.println(dao.getAllRilevamentiLocalitaMese(1, "Genova"));
 //		System.out.println(dao.getAvgRilevamentiLocalitaMese(1, "Genova"));
 //		

@@ -1,5 +1,6 @@
 package it.polito.tdp.meteo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Citta {
@@ -8,8 +9,7 @@ public class Citta {
 	private String nome;
 	private List<Rilevamento> rilevamenti;
 	private int counter = 0;
-	
-	
+	private int counterglob = 0;
 	
 	public Citta(String nome) {
 		this.nome = nome;
@@ -31,6 +31,15 @@ public class Citta {
 	public List<Rilevamento> getRilevamenti() {
 		return rilevamenti;
 	}
+	public List<Rilevamento> getRilevamentoMese(int mese) {
+		List<Rilevamento> Rilevamentis = new ArrayList<Rilevamento>();
+		for(Rilevamento r: rilevamenti) {
+			if(r.getData().getMonth()==(mese-1)) {
+				Rilevamentis.add(r);
+			}
+		}
+		return Rilevamentis;
+	}
 
 	public void setRilevamenti(List<Rilevamento> rilevamenti) {
 		this.rilevamenti = rilevamenti;
@@ -39,6 +48,10 @@ public class Citta {
 	public int getCounter() {
 		return counter;
 	}
+	
+	public int getCounterGlobale() {
+		return counterglob;
+	}
 
 	public void setCounter(int counter) {
 		this.counter = counter;
@@ -46,6 +59,10 @@ public class Citta {
 	
 	public void increaseCounter() {
 		this.counter += 1;
+	}
+	
+	public void increaseCounterGlob() {
+		this.counterglob += 1;
 	}
 
 	@Override
